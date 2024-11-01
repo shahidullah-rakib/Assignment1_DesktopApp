@@ -1,14 +1,18 @@
+import json
 from pynput import mouse
 
-class MouseTracker:
-    def __init__(self, ui_update_callback):
-        self.ui_update_callback = ui_update_callback
+mouse_data = []
 
-    def on_click(self, x, y, button, pressed):
-        action = "pressed" if pressed else "released"
-        event_text = f"{button} {action} at ({x}, {y})"
-        self.ui_update_callback(event_text)
+def on_click(x, y, button, pressed):
+    event = f"{button} {'pressed' if pressed else 'released'} at ({x}, {y})"
+    print(event)
+    mouse_data.append(event)
+    save_mouse_data()
 
-    def start_listener(self):
-        with mouse.Listener(on_click=self.on_click) as listener:
-            listener.join()
+def save_mouse_data():
+    with open("mouse_data.json", "w") as f:
+        json.dump(mouse_data, f)
+
+def start_mouse_tracking(log_function):
+    listener = mouse.Listener(on_click=on_click)
+    listener.start()

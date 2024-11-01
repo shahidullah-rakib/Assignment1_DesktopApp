@@ -1,0 +1,36 @@
+# Backend
+/backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/*.pyd
+backend/env/
+backend/venv/
+backend/ENV/
+backend/.venv/
+backend/*.egg-info/
+backend/dist/
+backend/build/
+
+# Frontend
+/frontend/node_modules/
+frontend/build/
+frontend/.env
+frontend/.DS_Store
+
+# Logs and Data Files
+*.log
+*.json
+*.csv
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE/editor specific
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.vscode/
+*.code-workspace
+*.swp
+*.swo

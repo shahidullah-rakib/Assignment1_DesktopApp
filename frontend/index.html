@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Visualization</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Tracking Visualization</h1>
+        
+        <div class="section" id="keyboard-tracking">
+            <h2>Keyboard Tracking</h2>
+            <pre id="keyboard-output"></pre>
+            <canvas id="keyboardChart" width="400" height="200"></canvas>
+        </div>
+
+        <div class="section" id="app-tracking">
+            <h2>Application Tracking</h2>
+            <pre id="app-output"></pre>
+            <canvas id="appChart" width="400" height="200"></canvas>
+        </div>
+
+        <div class="section" id="url-tracking">
+            <h2>URL Tracking</h2>
+            <pre id="url-output"></pre>
+            <canvas id="urlChart" width="400" height="200"></canvas>
+        </div>
+
+        <div class="section" id="mouse-tracking">
+            <h2>Mouse Tracking</h2>
+            <pre id="mouse-output"></pre>
+            <canvas id="mouseChart" width="400" height="200"></canvas>
+        </div>
+
+        <button id="clear-logs">Clear Logs</button>
+        <button id="export-logs">Export Logs</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
