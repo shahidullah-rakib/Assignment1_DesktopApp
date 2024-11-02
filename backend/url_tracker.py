@@ -6,16 +6,14 @@ from datetime import datetime, timedelta
 import json
 import threading
 
-# Path to Chrome's history file
 chrome_history_path = os.path.expanduser("~") + r"/AppData/Local/Google/Chrome/User Data/Default/History"
 
-# JSON file to save visited URLs
 json_file_path = "url_data.json"
 
-# Initialize a set to store visited URLs to avoid duplicates
+
 visited_urls = set()
 
-# Initialize a list to hold log entries for JSON output
+
 log_entries = []
 
 def log_url(url, browser):
@@ -44,12 +42,11 @@ def fetch_chrome_history():
     Fetches URLs visited in the last hour from Chrome's history database.
     """
     temp_history = "chrome_history_temp"
-    one_hour_ago = (datetime.now() - timedelta(hours=1)).timestamp() * 1000000  # convert to microseconds
+    one_hour_ago = (datetime.now() - timedelta(hours=1)).timestamp() * 1000000  
     try:
-        copy2(chrome_history_path, temp_history)  # Make a copy of the history file
+        copy2(chrome_history_path, temp_history) 
         conn = sqlite3.connect(temp_history)
         cursor = conn.cursor()
-        # SQL query to get URLs visited in the last hour
         cursor.execute("SELECT url FROM urls WHERE last_visit_time >= ? ORDER BY last_visit_time DESC", (one_hour_ago,))
         urls = cursor.fetchall()
         for (url,) in urls:
@@ -69,8 +66,8 @@ def monitor_websites(interval=60):
     """
     try:
         while True:
-            fetch_chrome_history()  # Fetch recent URLs from the last hour
-            time.sleep(interval)  # Check every `interval` seconds
+            fetch_chrome_history()  
+            time.sleep(interval)  
     except KeyboardInterrupt:
         print("Monitoring stopped by user.")
 
