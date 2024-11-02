@@ -17,7 +17,17 @@ This project is an activity-tracking application designed to monitor and log var
 
 ## Folder Structure
 
----
+event_tracker/
+├── backend/ ................# Backend folder
+│ ├───── main.py ...............# Main application script (Python with PyQt)
+│ └───── requirements.txt ......# Dependencies for the backend
+└── frontend/ ...............# Frontend folder
+│ ├───── main.js .................# Main process script for Electron
+│ ├───── index.html ..............# HTML file for the UI
+│ ├───── package.json ............# Node.js package configuration
+│ ├───── styles.css ..............# Styling the UI
+│ └───── script.js ...............# Renderer process script
+└── README.md ...............# Optional: A README file for frontend
 
 ## Technologies Used
 
